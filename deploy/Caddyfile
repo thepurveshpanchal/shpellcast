@@ -1,0 +1,57 @@
+# shpellcast behind Caddy — automatic HTTPS, two lines of real config.
+#
+#   sudo apt install caddy
+#   sudo cp deploy/Caddyfile /etc/caddy/Caddyfile   # edit the domain first
+#   sudo systemctl reload caddy
+#
+# Then set, in /etc/shpellcast/shpellcast.env:
+#   SHPELLCAST_HTTP=127.0.0.1:8080
+#   SHPELLCAST_BASE_URL=https://cast.example.com
+#   SHPELLCAST_TRUST_PROXY=true
+#
+# The raw TCP ingest port (1337) does not pass through Caddy: it is not
+# HTTP. Expose it directly in your firewall, or drop it and let producers
+# use `curl -T-` over HTTPS instead.
+
+cast.example.com {
+	encode zstd gzip
+
+	# Server-Sent Events must not be buffered or compressed, or the
+	# browser sees nothing until the job ends.
+	@stream path_regexp ^/s/[^/]+/(stream|raw)$
+	handle @stream {
+		encode off
+		reverse_proxy 127.0.0.1:8080 {
+			flush_interval -1
+			transport http {
+				read_timeout 0
+				write_timeout 0
+			}
+		}
+	}
+
+	# Uploads from `curl -T-` are open-ended streams, so no read timeout.
+	@ingest path /i /i/*
+	handle @ingest {
+		reverse_proxy 127.0.0.1:8080 {
+			flush_interval -1
+			transport http {
+				read_timeout 0
+				write_timeout 0
+			}
+		}
+	}
+
+	handle {
+		reverse_proxy 127.0.0.1:8080
+	}
+
+	header {
+		Strict-Transport-Security "max-age=31536000; includeSubDomains"
+		-Server
+	}
+
+	log {
+		output file /var/log/caddy/shpellcast.log
+	}
+}
