@@ -48,8 +48,8 @@ Go 1.22 or newer. No other tooling required.
       real sockets and real HTTP, as the existing suite does.
 - [ ] New limits, flags or endpoints are documented in `README.md` **and**
       `deploy/shpellcast.env`
-- [ ] Anything affecting concurrency or memory includes a `make loadtest`
-      result in the PR description
+- [ ] Anything affecting concurrency or memory says in the PR description
+      how it was measured
 - [ ] Commit messages explain *why*, not just *what*
 
 ## Code style
