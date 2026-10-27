@@ -2,7 +2,7 @@
 # shpellcast installer for Ubuntu/Debian (and anything else with systemd).
 #
 #   sudo ./install.sh                              # install + start
-#   sudo ./install.sh --domain cast.example.com    # ...and set the public URL
+#   sudo ./install.sh --domain shpellcast.godtech.in    # ...and set the public URL
 #   sudo ./install.sh --uninstall
 #
 # Installs a prebuilt binary from dist/ when one matches this machine, and

@@ -4,7 +4,7 @@
 #
 #   docker build -t shpellcast .
 #   docker run -p 8080:8080 -p 1337:1337 \
-#     -e SHPELLCAST_BASE_URL=https://cast.example.com shpellcast
+#     -e SHPELLCAST_BASE_URL=https://shpellcast.godtech.in shpellcast
 
 FROM golang:1.24-alpine AS build
 ARG VERSION=docker

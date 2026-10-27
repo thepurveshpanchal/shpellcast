@@ -139,6 +139,6 @@ Initial release.
   Dockerfile, and cross-compiled release binaries.
 - Zero third-party dependencies.
 
-[Unreleased]: https://github.com/YOUR-ORG/shpellcast/compare/v1.1.0...HEAD
-[1.1.0]: https://github.com/YOUR-ORG/shpellcast/releases/tag/v1.1.0
-[1.0.0]: https://github.com/YOUR-ORG/shpellcast/releases/tag/v1.0.0
+[Unreleased]: https://github.com/thepurveshpanchal/shpellcast/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/thepurveshpanchal/shpellcast/releases/tag/v1.1.0
+[1.0.0]: https://github.com/thepurveshpanchal/shpellcast/releases/tag/v1.0.0

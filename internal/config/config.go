@@ -84,7 +84,7 @@ func Parse(args []string, out io.Writer) (Config, error) {
 
 	fs.StringVar(&c.HTTPAddr, "http", env("HTTP", c.HTTPAddr), "HTTP listen address for the viewer and API")
 	fs.StringVar(&c.TCPAddr, "tcp", env("TCP", c.TCPAddr), "raw TCP listen address for `nc` ingest (empty disables)")
-	fs.StringVar(&c.BaseURL, "base-url", env("BASE_URL", c.BaseURL), "public base URL used in generated links, e.g. https://cast.example.com (empty = derive from request)")
+	fs.StringVar(&c.BaseURL, "base-url", env("BASE_URL", c.BaseURL), "public base URL used in generated links, e.g. https://shpellcast.godtech.in (empty = derive from request)")
 
 	bufStr := fs.String("buffer", env("BUFFER", humanBytes(int64(c.BufferBytes))), "replay buffer retained per session (e.g. 256KB, 4MB)")
 	quotaStr := fs.String("quota", env("QUOTA", humanBytes(c.QuotaBytes)), "maximum output accepted per session (0 = unlimited)")

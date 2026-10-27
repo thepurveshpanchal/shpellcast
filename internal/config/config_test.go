@@ -32,7 +32,7 @@ func TestParseFlags(t *testing.T) {
 		"-tcp", "",
 		"-buffer", "4MB",
 		"-quota", "0",
-		"-base-url", "https://cast.example.com/",
+		"-base-url", "https://shpellcast.godtech.in/",
 		"-idle-ttl", "90m",
 		"-trust-proxy",
 	}, io.Discard)
@@ -48,7 +48,7 @@ func TestParseFlags(t *testing.T) {
 	if c.QuotaBytes != 0 {
 		t.Errorf("quota = %d, want 0 (unlimited)", c.QuotaBytes)
 	}
-	if c.BaseURL != "https://cast.example.com" {
+	if c.BaseURL != "https://shpellcast.godtech.in" {
 		t.Errorf("base URL = %q (trailing slash should be trimmed)", c.BaseURL)
 	}
 	if c.IdleTTL != 90*time.Minute {
@@ -113,7 +113,7 @@ func TestValidateRejectsUnsafeConfig(t *testing.T) {
 		{"short ids", []string{"-id-length", "4"}, "id-length"},
 		{"quota below buffer", []string{"-buffer", "4MB", "-quota", "1MB"}, "quota"},
 		{"tiny buffer", []string{"-buffer", "16"}, "buffer"},
-		{"bad base url", []string{"-base-url", "cast.example.com"}, "base-url"},
+		{"bad base url", []string{"-base-url", "shpellcast.godtech.in"}, "base-url"},
 		{"bad log level", []string{"-log-level", "verbose"}, "log-level"},
 		{"no http addr", []string{"-http", ""}, "http"},
 	}

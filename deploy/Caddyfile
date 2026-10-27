@@ -6,14 +6,14 @@
 #
 # Then set, in /etc/shpellcast/shpellcast.env:
 #   SHPELLCAST_HTTP=127.0.0.1:8080
-#   SHPELLCAST_BASE_URL=https://cast.example.com
+#   SHPELLCAST_BASE_URL=https://shpellcast.godtech.in
 #   SHPELLCAST_TRUST_PROXY=true
 #
 # The raw TCP ingest port (1337) does not pass through Caddy: it is not
 # HTTP. Expose it directly in your firewall, or drop it and let producers
 # use `curl -T-` over HTTPS instead.
 
-cast.example.com {
+shpellcast.godtech.in {
 	encode zstd gzip
 
 	# Server-Sent Events must not be buffered or compressed, or the

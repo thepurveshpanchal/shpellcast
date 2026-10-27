@@ -5,7 +5,7 @@
 Please report security issues privately rather than opening a public
 issue.
 
-**Email:** `security@YOUR-DOMAIN-HERE`
+**Email:** `security@shpellcast.godtech.in`
 *(placeholder — replace with a real address before publishing)*
 
 Include what you can: affected version (`shpellcast -version`), a

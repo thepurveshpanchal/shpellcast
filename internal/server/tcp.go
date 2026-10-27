@@ -13,8 +13,8 @@ import (
 // serveTCP accepts raw producer connections. The protocol is deliberately
 // the simplest thing that works everywhere:
 //
-//	$ long_job | nc cast.example.com 1337
-//	shpellcast: https://cast.example.com/s/4q8z...
+//	$ long_job | nc shpellcast.godtech.in 1337
+//	shpellcast: https://shpellcast.godtech.in/s/4q8z...
 //
 // On connect the server allocates a session and writes one banner line
 // back, which netcat prints on the producer's terminal. Everything the

@@ -27,7 +27,7 @@ good argument, not just working code.
 ## Getting set up
 
 ```bash
-git clone https://github.com/YOUR-ORG/shpellcast.git && cd shpellcast
+git clone https://github.com/thepurveshpanchal/shpellcast.git && cd shpellcast
 make build
 make check        # gofmt + go vet + go test -race
 ./bin/shpellcast -log-level debug
